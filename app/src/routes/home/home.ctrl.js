@@ -25,7 +25,7 @@ const process = {
 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
-            if(users.psword(idx) === psword){
+            if(users.psword[idx] === psword){
                 return res.json({
                     success: true,
                 })
