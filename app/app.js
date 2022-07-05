@@ -27,5 +27,7 @@ app.use("/", home); // index.js 연결(use -> 미들웨어 등록해주는 메�
 app.set("views", "./src/views"); 
 app.set("view engine", "ejs");
 
+//public 미들웨어 설정
+app.use(express.static(`${__dirname}/src/public`));
 module.exports = app;
 
