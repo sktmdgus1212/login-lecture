@@ -1,6 +1,5 @@
 "use strict"
 
-const { post } = require("../../../routes/home");
 
 //dom을 통해 html의 데이터를 js로 제어
 
@@ -18,10 +17,12 @@ function login(){
     //console.log(req);
     //console.log(JSON.stringify(req));
     fetch("/login", {
-        method: post,
+        method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(req)
-    });
+    })
+    .then((res) => res.json())
+    .then(console.log);
 }

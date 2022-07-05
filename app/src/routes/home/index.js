@@ -5,8 +5,9 @@ const router = express.Router();
 
 const ctrl = require("./home.ctrl");
 
-router.get("/", ctrl.hello); 
+router.get("/", ctrl.output.hello); 
+router.get("/login", ctrl.output.login)
 
-router.get("/login", ctrl.login)
+router.post("/login", ctrl.process.login)
 
 module.exports = router; // 외부로 내보내기 명령
