@@ -1,8 +1,6 @@
 "use strict"
  //controller 분리
-
-const UserStorage = require("../../model/UserStoarage");
-
+const User = require("../../model/User.js");
  //front
 const output = {
     hello: (req, res) =>{
@@ -17,23 +15,10 @@ const output = {
 //back
 const process = {
     login: (req, res) => {
-        const id = req.body.id;
-        const psword = req.body.psword;
-
-        console.log(UserStorage.getUsers("id", "psword"));
-        const response = {};
-        
-        // if(users.id.includes(id)){
-        //     const idx = users.id.indexOf(id);
-        //     if(users.psword[idx] === psword){
-        //         response.success = true;
-        //         return res.json(response);
-        //     }
-        // }
-
-        response.success = false;
-        response.msg = "fail login";
+        const user = new User(req.body);
+        const response = user.login();
         return res.json(response);
+    
     }
 }
 
