@@ -4,19 +4,23 @@
 //dom을 통해 html의 데이터를 js로 제어
 
 const id = document.querySelector("#id"); //html id="id" 불러옴
+const name = document.querySelector("#name");
 const psword = document.querySelector("#psword");
-const loginBtn = document.querySelector("#button");
+const confirmPsword = document.querySelector("#confirm-psword")
+const registerBtn = document.querySelector("#button");
 
-loginBtn.addEventListener("click", login);
+registerBtn.addEventListener("click", register);
 
-function login(){
+function register(){
     const req = {
         id: id.value,
+        name: name.value,
         psword: psword.value,
+        confirmPsword: confirmPsword.value,
     }
     //console.log(req);
     //console.log(JSON.stringify(req));
-    fetch("/login", {
+    fetch("/register", {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
