@@ -1,10 +1,7 @@
 "use strict"
  //controller 분리
 
- const users = {
-    id: ["sktmdgus", "ingyu", "skdlsrb"],
-    psword: ["1234", "1234", "123456"],
- };
+const UserStorage = require("../../model/UserStoarage");
 
  //front
 const output = {
@@ -23,19 +20,20 @@ const process = {
         const id = req.body.id;
         const psword = req.body.psword;
 
-        if(users.id.includes(id)){
-            const idx = users.id.indexOf(id);
-            if(users.psword[idx] === psword){
-                return res.json({
-                    success: true,
-                })
-            }
-        }
+        console.log(UserStorage.getUsers("id", "psword"));
+        const response = {};
+        
+        // if(users.id.includes(id)){
+        //     const idx = users.id.indexOf(id);
+        //     if(users.psword[idx] === psword){
+        //         response.success = true;
+        //         return res.json(response);
+        //     }
+        // }
 
-        return res.json({
-            success: false,
-            msg: "fail login",
-        });
+        response.success = false;
+        response.msg = "fail login";
+        return res.json(response);
     }
 }
 

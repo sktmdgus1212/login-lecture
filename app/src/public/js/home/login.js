@@ -25,12 +25,12 @@ function login(){
     })
     .then((res) => res.json())
     .then((res) => {
-        if(res.success){
-            location.href = "/"; //링크 이동
-        }
-        else{
-            alert(res.msg);
-        }
+       if(res.success){
+           location.href = "/"; //링크 이동
+       }
+       else{
+           alert(res.msg);
+       }
     })
     .catch((err) =>{
         console.log(new Error("로그인 중 에러 발생"));
