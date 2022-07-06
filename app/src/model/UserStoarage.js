@@ -7,17 +7,7 @@ class UserStorage{
         nams: ["naingyu", "naseunghyun", "kimminseob"]
     };
 
-    static getUsers(...fields){
-        const users = this.#users;
-        const newUsers = fields.reduce((newUsers, filed) =>{
-            if(users.hasownProperty(field)){
-                newUsers[field] = users[field]; //colloect field you want
-            }
-            return newUsers;
-        }, {});
-        return newUsers;
-    }
-
+    
     static getUserInfo(id){
         const users = this.#users;
         const idx = users.id.indexOf(id);
