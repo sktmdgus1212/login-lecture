@@ -22,10 +22,15 @@ class User{
             
     }
 
-    register(){
+    async register(){
         const client = this.body;
-        const response = UserStoarage.save(client);
-        return response;
+        try{
+            const response = await UserStoarage.save(client);
+            return response;
+        }
+        catch(err){
+            return {success: false, msg: err};
+        }
     }
 }
 
