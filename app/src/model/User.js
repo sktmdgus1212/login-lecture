@@ -9,15 +9,20 @@ class User{
     }
     async login(){
         const client = this.body;
-        const {id, psword} = await UserStoarage.getUserInfo(client.id);
-        if(id){
-            if(id === client.id && psword === client.psword){
-                return {success: true};   
+        try{
+            const {id, psword} = await UserStoarage.getUserInfo(client.id);
+            if(id){
+                if(id === client.id && psword === client.psword){
+                    return {success: true};   
+                }
+                return {success: false, msg: "비밀번호가 틀렸습니다."};
             }
-            return {success: false, msg: "비밀번호가 틀렸습니다."};
+            else{
+                return {success: false, msg: "존재하지 않는 계정입니다."};
+            }
         }
-        else{
-            return {success: false, msg: "존재하지 않는 계정입니다."};
+        catch(err){
+            return {success: false, msg: "로그인 중 에러 발생"};
         }
             
     }
