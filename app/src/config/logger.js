@@ -41,4 +41,8 @@ if(process.env.NODE_ENV != 'production'){
       opts.console
     );
 }
+
+// logger.stream = {
+//     write: (message) => logger.info(message)
+// }
 module.exports = logger;

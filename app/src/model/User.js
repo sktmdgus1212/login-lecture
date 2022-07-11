@@ -22,7 +22,7 @@ class User{
             }
         }
         catch(err){
-            return {success: false, msg: "로그인 중 에러 발생"};
+            return {success: false, err};
         }
             
     }
@@ -34,7 +34,7 @@ class User{
             return response;
         }
         catch(err){
-            return {success: false, msg: err};
+            return {success: false, err};
         }
     }
 }

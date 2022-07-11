@@ -38,6 +38,9 @@ function register(){
            location.href = "/login"; //링크 이동
        }
        else{
+        if(res.arr){
+            return alert(res.arr);
+        }
            alert(res.msg);
        }
     })

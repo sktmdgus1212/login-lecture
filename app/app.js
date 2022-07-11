@@ -28,6 +28,9 @@ dotenv.config({ path: './.env'});
 //const morgan = require("morgan");
 //const accessLogStream  = require("./src/config/log");
 
+//로그 관리
+//const logger = require("./src/config/logger");
+
 const app = express();
 
 // routing
@@ -47,7 +50,7 @@ app.use("/", home); // index.js 연결(use -> 미들웨어 등록해주는 메�
 // morgan 미들웨어 등록
 //app.use(morgan("dev"));
 //app.use(morgan("common", {stream: accessLogStream}));
-
+//app.use(morgan("common", {stream: logger.stream}));
 
 module.exports = app;
 
