@@ -2,7 +2,8 @@
 
 const app = require("../app");
 const PORT = process.env.PORT || 3000;
+const logger = require("../src/config/logger");
 
 app.listen(PORT, () => { // open 3000 port
-    console.log("server run");
+    logger.info(`${PORT} Port Server Start`);
  });

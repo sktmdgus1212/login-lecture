@@ -19,6 +19,15 @@
 const express = require("express"); 
 // bodyparser: body를 보기 위한 도구    
 const bodyParser = require("body-parser");
+
+// 환경 변수 셋팅
+const dotenv = require("dotenv");
+dotenv.config({ path: './.env'});
+
+//로그 관리(morgan)
+//const morgan = require("morgan");
+//const accessLogStream  = require("./src/config/log");
+
 const app = express();
 
 // routing
@@ -34,6 +43,11 @@ app.use(bodyParser.json());
 //url을 통해 전달되는 데이터의 한글, 공백 등과 같은 문자가 포함될 경우 인식되지 않는 문제 해결
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use("/", home); // index.js 연결(use -> 미들웨어 등록해주는 메소드) 
+
+// morgan 미들웨어 등록
+//app.use(morgan("dev"));
+//app.use(morgan("common", {stream: accessLogStream}));
+
 
 module.exports = app;
 
